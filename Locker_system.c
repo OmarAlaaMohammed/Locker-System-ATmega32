@@ -7,37 +7,19 @@
 
 #include "Locker_system.h"
 
-/*****************************************************************************
-* Function Name: LEDTog3s
-* Purpose      : Toggle the LED every 3000 milliseconds
-* Parameters   : void
-* Return value : void
-*****************************************************************************/
+
 void LEDTog3s(){
 	SETBIT(PORTB,PB0);
 	_delay_ms(3000);
 	CLRBIT(PORTB,PB0);
 }
 
-/*****************************************************************************
-* Function Name: LEDTog100
-* Purpose      : Toggle the LED every 100 milliseconds
-* Parameters   : void
-* Return value : void
-*****************************************************************************/
+
 void LEDTog100(){
 	SETBIT(PORTB,PB0);
 	_delay_ms(100);
 	CLRBIT(PORTB,PB0);
 }
-
-/*****************************************************************************
-* Function Name: systemInit
-* Purpose      : Initialize the system which consists of keypad and LCD
-			     and set the direction of PB0 and PB1 as an output (LEDS)
-* Parameters   : void
-* Return value : void
-*****************************************************************************/
 
 void systemInit(){
 	LCD_init();
@@ -46,12 +28,6 @@ void systemInit(){
 	SETBIT(DDRB,PB0);	//Setting PORTB, PIN4 as an output (buzzer)
 	SETBIT(DDRB,PB1);
 }
-/*****************************************************************************
-* Function Name: checkMemory
-* Purpose      : Check the password the 
-* Parameters   : void
-* Return value : void
-*****************************************************************************/
 
 void checkMemory(){
 	
@@ -62,12 +38,6 @@ void checkMemory(){
 	data[2] = EEPROM_read(50);
 	data[3] = EEPROM_read(51);
 	
-	LCD_write_command(SECOND_LINE(0));
-	
-	LCD_write_num(data[0]);
-	LCD_write_num(data[1]);
-	LCD_write_num(data[2]);
-	LCD_write_num(data[3]);
 	
 	/*First time to use the EEPROM the initial values are 255. Make initial password 0000*/
 	
