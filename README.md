@@ -14,13 +14,13 @@ To reset password and locker is closed (if user forget it): developer should fla
 
 # System Components
 * HAL:
-Keypad
-LCD
-Buzzer
-LED's
+-Keypad
+-LCD
+-Buzzer
+-LED's
 
 * MCAL:
-EEPROM
+-EEPROM
 
    
 
